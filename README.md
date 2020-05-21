@@ -105,3 +105,31 @@ doSubscribe  如下：
 8. 服务监控中心收到 `subscribe` 和 `unsubsribe` 事件后，从 `Key:/dubbo/com.foo.BarService/consumers`下获取消费者地址列表
 
    **注意：默认实现是jedis**
+
+打开 dubbo-registry-redis 模块只有RedisRegistryFactory 里面依旧是RedisRegistry 打开 RedisRegistry 
+
+其构造前面的都是一些参数设置
+
+重点是：
+
+![1590075886174](E:\study\dubbo\assets\1590075886174.png)
+
+注意：服务主动下线会有 unregister 广播，但是服务宕机，那么没有unregister ，服务不会完成下线，其依赖于服务治理中心定时调度，去清理超时未延期的key，并发布 unregister 广播，从而保证一致性
+
+![1590075895779](E:\study\dubbo\assets\1590075895779.png)
+
+查看RedisRegistry  结构
+
+destroy
+
+doRegister ： hset(key, value, expire)      publish(key, register)
+
+doUnregister :  hdel(key, value)   publish(key, unregister)
+
+doSubscribe  如下：
+
+![1590077149225](E:\study\dubbo\assets\1590077149225.png)
+
+拉取为：
+
+![1590077169416](E:\study\dubbo\assets\1590077169416.png)
