@@ -52,7 +52,11 @@ dubbo-registry 模块
 
 点开 ZookeeperRegistry
 
-![1590071437422](E:\study\dubbo\assets\1590071437422.png)
+![](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590071437422.png?raw=true)
+
+接着打开 ZookeeperRegistry.this.recover();
+
+![1590072129407](E:\study\dubbo\assets\1590072129407.png)
 
 ### 2.redis
 
