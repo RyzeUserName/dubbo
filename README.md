@@ -62,13 +62,11 @@ dubbo-registry 模块
 
 destroy
 
-doRegister  doUnregister
+doRegister 注册临时节点 doUnregister  删除节点
 
-doSubscribe doUnsubscribe
+doSubscribe  如下：
 
-顾名思义 注册 订阅
-
-doRegister   注册临时节点  doUnregister 删除节点
+![1590074154433](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590074154433.png?raw=true)
 
 
 
