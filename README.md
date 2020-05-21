@@ -56,7 +56,21 @@ dubbo-registry 模块
 
 接着打开 ZookeeperRegistry.this.recover();
 
-![1590072129407](E:\study\dubbo\assets\1590072129407.png)
+![1590072129407](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590072129407.png?raw=true)
+
+查看 结构为：
+
+destroy
+
+doRegister  doUnregister
+
+doSubscribe doUnsubscribe
+
+顾名思义 注册 订阅
+
+doRegister   注册临时节点  doUnregister 删除节点
+
+
 
 ### 2.redis
 
