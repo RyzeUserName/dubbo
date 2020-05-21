@@ -112,11 +112,11 @@ doSubscribe  如下：
 
 重点是：
 
-![1590075886174](E:\study\dubbo\assets\1590075886174.png)
+![1590075886174](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590075886174.png?raw=true)
 
 注意：服务主动下线会有 unregister 广播，但是服务宕机，那么没有unregister ，服务不会完成下线，其依赖于服务治理中心定时调度，去清理超时未延期的key，并发布 unregister 广播，从而保证一致性
 
-![1590075895779](E:\study\dubbo\assets\1590075895779.png)
+![1590075895779](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590075895779.png?raw=true)
 
 查看RedisRegistry  结构
 
@@ -128,8 +128,8 @@ doUnregister :  hdel(key, value)   publish(key, unregister)
 
 doSubscribe  如下：
 
-![1590077149225](E:\study\dubbo\assets\1590077149225.png)
+![1590077149225](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590077149225.png?raw=true)
 
 拉取为：
 
-![1590077169416](E:\study\dubbo\assets\1590077169416.png)
+![1590077169416](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590077169416.png?raw=true)
