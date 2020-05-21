@@ -24,6 +24,9 @@ import org.apache.dubbo.config.utils.ReferenceConfigCache;
 import org.apache.dubbo.demo.DemoService;
 import org.apache.dubbo.rpc.service.GenericService;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+
 public class Application {
     public static void main(String[] args) {
         if (isClassic(args)) {
@@ -57,6 +60,17 @@ public class Application {
         Object genericInvokeResult = genericService.$invoke("sayHello", new String[] { String.class.getName() },
                 new Object[] { "dubbo generic invoke" });
         System.out.println(genericInvokeResult);
+
+        //
+        CompletableFuture<String> future = demoService.sayHelloAsync("你猜");
+        try {
+            String s = future.get();
+            System.out.println("异步调用"+s);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void runWithRefer() {
