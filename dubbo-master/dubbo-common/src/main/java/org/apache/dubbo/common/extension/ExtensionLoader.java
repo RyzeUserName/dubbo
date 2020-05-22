@@ -631,19 +631,24 @@ public class ExtensionLoader<T> {
             throw findException(name);
         }
         try {
+            //缓存中取出
             T instance = (T) EXTENSION_INSTANCES.get(clazz);
             if (instance == null) {
-                //反射创建
+                //没有的话反射创建
                 EXTENSION_INSTANCES.putIfAbsent(clazz, clazz.newInstance());
                 instance = (T) EXTENSION_INSTANCES.get(clazz);
             }
+            //普通注入扩展 set填值
             injectExtension(instance);
             Set<Class<?>> wrapperClasses = cachedWrapperClasses;
+            //所有包装处理
             if (CollectionUtils.isNotEmpty(wrapperClasses)) {
                 for (Class<?> wrapperClass : wrapperClasses) {
+                    //对应wrapper 注入扩展 set填值
                     instance = injectExtension((T) wrapperClass.getConstructor(type).newInstance(instance));
                 }
             }
+            //初始化
             initExtension(instance);
             return instance;
         } catch (Throwable t) {

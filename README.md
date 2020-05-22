@@ -134,9 +134,68 @@ doSubscribe  如下：
 
 ![1590077169416](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590077169416.png?raw=true)
 
-关于 AbstractRegistry 、FailbackRegistry
+关于 AbstractRegistry 、FailbackRegistry 其实就是增加了 缓存 和 重试
 
-![1590115203670](E:\study\dubbo\assets\1590115203670.png)
+![1590115203670](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590115203670.png?raw=true)
+
+**所有注册中心 都是通过对应的工厂实现，即 AbstractRegistryFactory （父类 RegistryFactory）**
+
+在 RegistryFactory 接口 暴露出来
+
+## 3.扩展加载机制
+
+### 1.加载机制
+
+dubbo spi跟java spi区别：
+
+1. java spi 一次性实例化扩展点的全部实现很耗时，不能按需加载
+
+2. java spi 加载失败会将异常吃掉，不会报错
+
+3. dubbo 增加了扩展的IOC（setter）和AOP（增加包装类）
+
+同时： 增加了缓存 class缓存（class字节码）、 实例缓存（实例）等
+
+​           增加了普通扩展类、包装扩展类（Wrapper）、自适应扩展类（Adaptive）
+
+核心类 就是 ExtensionLoader 
+
+**扩展的特点：**
+
+自动包装   Wrapper
+
+自动加载   setter
+
+自适应  @Adaptive
+
+自动激活 @Activate 
+
+### 2.扩展注解
+
+@SPI  标记为扩展点
+
+@Adaptive  一般写在方法上，通过动态获取实现类，现在实现类上 就是默认实现 （只能有一个，多个会出异常）
+
+@Adaptive可以穿多个key 根据url?后面的key做匹配，没有的话默认用SPI上的key 寻找实现
+
+@Activate  根据传入的条件 匹配激活 group value before after（前后顺序）order （排序）
+
+### 3.ExtensionLoader 原理
+
+1. getExtension  获取普通扩展类
+
+   ![1590137922811](E:\study\dubbo\assets\1590137922811.png)
+
+   其实方法  createExtension 具体实现：
+
+   ![1590140823943](E:\study\dubbo\assets\1590140823943.png)
+
+2. getAdaptiveExtension 获取自适应扩展类
+
+3. getActivateExtension  获取激活扩展类
 
 
 
+
+
+### 4.扩展点动态编译实现
