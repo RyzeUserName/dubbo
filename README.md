@@ -218,6 +218,6 @@ ExtensionFactory 工厂生产ExtensionLoader
 
 ExtensionFactory 的实现有：
 
-![1590144711903](E:\study\dubbo\assets\1590144711903.png)
+![1590144711903](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590144711903.png?raw=true)
 
 ### 4.扩展点动态编译实现
