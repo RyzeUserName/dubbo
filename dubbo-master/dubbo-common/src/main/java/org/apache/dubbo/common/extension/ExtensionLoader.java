@@ -572,14 +572,12 @@ public class ExtensionLoader<T> {
     public T getAdaptiveExtension() {
         // 从缓存中获取自适应拓展
         Object instance = cachedAdaptiveInstance.get();
-        if (instance == null) {
-            // 缓存未命中
+        if (instance == null) {  // 缓存未命中
             if (createAdaptiveInstanceError != null) {
                 throw new IllegalStateException("Failed to create adaptive instance: " +
                         createAdaptiveInstanceError.toString(),
                         createAdaptiveInstanceError);
             }
-
             synchronized (cachedAdaptiveInstance) {
                 instance = cachedAdaptiveInstance.get();
                 if (instance == null) {
@@ -595,7 +593,6 @@ public class ExtensionLoader<T> {
                 }
             }
         }
-
         return (T) instance;
     }
 

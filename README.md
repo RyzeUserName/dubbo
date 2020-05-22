@@ -184,6 +184,8 @@ dubbo spi跟java spi区别：
 
 1. getExtension  获取普通扩展类
 
+    详情：
+
    ![1590137922811](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590137922811.png?raw=true)
 
    其实方法  createExtension 具体实现：
@@ -191,6 +193,20 @@ dubbo spi跟java spi区别：
    ![1590140823943](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590140823943.png?raw=true)
 
 2. getAdaptiveExtension 获取自适应扩展类
+
+   具体实现：
+
+   ![1590142190201](E:\study\dubbo\assets\1590142190201.png)
+
+   方法createAdaptiveExtension实现：
+
+   ![1590142232043](E:\study\dubbo\assets\1590142232043.png)
+
+   其中代码生成为：
+
+   ![1590142289865](E:\study\dubbo\assets\1590142289865.png)
+
+   
 
 3. getActivateExtension  获取激活扩展类
 
