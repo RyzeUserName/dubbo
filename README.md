@@ -133,3 +133,10 @@ doSubscribe  如下：
 拉取为：
 
 ![1590077169416](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590077169416.png?raw=true)
+
+关于 AbstractRegistry 、FailbackRegistry
+
+![1590115203670](E:\study\dubbo\assets\1590115203670.png)
+
+
+

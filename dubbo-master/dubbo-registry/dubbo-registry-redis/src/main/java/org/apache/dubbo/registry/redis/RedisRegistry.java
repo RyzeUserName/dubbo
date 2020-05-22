@@ -434,6 +434,7 @@ public class RedisRegistry extends FailbackRegistry {
                 }
             }
             String category = toCategoryName(key);
+            //存在行校验
             if (!categories.contains(ANY_VALUE) && !categories.contains(category)) {
                 continue;
             }
