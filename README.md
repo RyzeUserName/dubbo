@@ -192,26 +192,32 @@ dubbo spi跟java spi区别：
 
    ![1590140823943](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590140823943.png?raw=true)
 
+   最终返回普通包装 实例
+
 2. getAdaptiveExtension 获取自适应扩展类
 
    具体实现：
 
-   ![1590142190201](E:\study\dubbo\assets\1590142190201.png)
+   ![1590142190201](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590142190201.png?raw=true)
 
    方法createAdaptiveExtension实现：
 
-   ![1590142232043](E:\study\dubbo\assets\1590142232043.png)
+   ![1590142232043](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590142232043.png?raw=true)
 
    其中代码生成为：
 
-   ![1590142289865](E:\study\dubbo\assets\1590142289865.png)
+   ![1590142289865](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590142289865.png?raw=true)
 
    
 
 3. getActivateExtension  获取激活扩展类
 
+   其实现大概是通过url 过滤要激活的类 
 
+ExtensionFactory 工厂生产ExtensionLoader  
 
+ExtensionFactory 的实现有：
 
+![1590144711903](E:\study\dubbo\assets\1590144711903.png)
 
 ### 4.扩展点动态编译实现
