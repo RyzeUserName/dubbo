@@ -292,7 +292,17 @@ jdk的动态编译需要实现：JavaFileObject 接口、ForwardingJavaFileManag
 
 ![1590334986021](E:\study\dubbo\assets\1590334986021.png)
 
+标签属性的解析：
 
+![1590336123959](E:\study\dubbo\assets\1590336123959.png)
+
+具体的值解析：
+
+![1590336171323](E:\study\dubbo\assets\1590336171323.png)
+
+将匹配不到的值存在一个map里
+
+![1590336204376](E:\study\dubbo\assets\1590336204376.png)
 
 #### 2.注解
 
