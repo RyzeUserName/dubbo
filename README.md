@@ -286,23 +286,23 @@ jdk的动态编译需要实现：JavaFileObject 接口、ForwardingJavaFileManag
 
 实现了BeanDefinitionParser 接口，主要就是parse 的实现
 
-![1590334702342](E:\study\dubbo\assets\1590334702342.png)
+![1590334702342](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590334702342.png?raw=true)
 
 负责把标签解析成对应的bean注册到spring上下文,service 标签处理：
 
-![1590334986021](E:\study\dubbo\assets\1590334986021.png)
+![1590334986021](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590334986021.png?raw=true)
 
 标签属性的解析：
 
-![1590336123959](E:\study\dubbo\assets\1590336123959.png)
+![1590336123959](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590336123959.png?raw=true)
 
 具体的值解析：
 
-![1590336171323](E:\study\dubbo\assets\1590336171323.png)
+![1590336171323](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590336171323.png?raw=true)
 
 将匹配不到的值存在一个map里
 
-![1590336204376](E:\study\dubbo\assets\1590336204376.png)
+![1590336204376](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590336204376.png?raw=true)
 
 #### 2.注解
 
