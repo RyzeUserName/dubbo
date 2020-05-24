@@ -232,7 +232,7 @@ AbstractCompiler 类 一些通用的功能，url拼接，Class.forName防止重�
 
 **JavassistCompiler**的实现：
 
-![1590327983604](E:\study\dubbo\assets\1590327983604.png)
+![1590327983604](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590327983604.png?raw=true)
 
 正如上标识一样，举个小例子：
 
