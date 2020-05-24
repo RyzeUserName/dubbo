@@ -230,6 +230,28 @@ AdaptiveCompiler 类中有方法setDefaultCompiler 设置默认编译实现，�
 
 AbstractCompiler 类 一些通用的功能，url拼接，Class.forName防止重复编译
 
+**JavassistCompiler**的实现：
+
 ![1590327983604](E:\study\dubbo\assets\1590327983604.png)
 
-正如上标识一样
+正如上标识一样，举个小例子：
+
+```java
+public static void main(String[] args) throws CannotCompileException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+        ClassPool pool = ClassPool.getDefault();
+        CtClass helloWorld = pool.makeClass("HelloWorld");
+        CtMethod make = CtNewMethod.make(" public static void hello(){\n" +
+            "        System.out.println(\"hello world\");\n" +
+            "    }", helloWorld);
+        helloWorld.addMethod(make);
+        Class aClass = helloWorld.toClass();
+        Object instance = aClass.newInstance();
+        Method hello = aClass.getDeclaredMethod("hello", null);
+        hello.invoke(instance,null);
+    }
+```
+
+控制台打出来hello world
+
+**JdkCompiler**的实现：
+
