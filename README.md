@@ -225,3 +225,11 @@ ExtensionFactory 的实现有：
 ​       上面我们看到其生成的class 就是字符串，生成类还有一段路，虽然我们可以通过反射生成，但是在性能上与直接编译好的class 还是有一定差距，dubbo怎么解决的呢？动态编译器，dubbo中的设计：
 
 ![1590327031956](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590327031956.png?raw=true)
+
+AdaptiveCompiler 类中有方法setDefaultCompiler 设置默认编译实现，调用设置的编译实现编译，调用的地方是ApplicationConfig#setCompiler 也就是读取 标签中 compiler的值，在这里AdaptiveCompiler  类似于之前的工厂
+
+AbstractCompiler 类 一些通用的功能，url拼接，Class.forName防止重复编译
+
+![1590327983604](E:\study\dubbo\assets\1590327983604.png)
+
+正如上标识一样
