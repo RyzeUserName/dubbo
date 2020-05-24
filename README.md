@@ -255,3 +255,62 @@ public static void main(String[] args) throws CannotCompileException, IllegalAcc
 
 **JdkCompiler**的实现：
 
+jdk的动态编译需要实现：JavaFileObject 接口、ForwardingJavaFileManager接口、JavaCompiler.CompilationTask 方法
+
+1. JavaFileObject 
+
+   字符串会被包装成文件对象，输入输出都是ByteArray流，
+
+2. JavaFileManager
+
+   管理文件的读取和输出位置，jdk中不提供默认的实现
+
+3. JavaCompiler.CompilationTask
+
+   该方法将JavaFileObject 对象编译成具体的类
+
+
+## 4.dubbo启停原理
+
+ ### 1.dubbo配置解析
+
+#### 1.xml
+
+1.schema设计
+
+详细内容 http://dubbo.apache.org/zh-cn/docs/user/references/xml/introduction.html
+
+2.解析
+
+逻辑入口在 DubboNamespaceHandler #init 方法中主要是讲逻辑委托给了 DubboBeanDefinitionParser类
+
+实现了BeanDefinitionParser 接口，主要就是parse 的实现
+
+![1590334702342](E:\study\dubbo\assets\1590334702342.png)
+
+负责把标签解析成对应的bean注册到spring上下文,service 标签处理：
+
+![1590334986021](E:\study\dubbo\assets\1590334986021.png)
+
+
+
+#### 2.注解
+
+ ### 2.dubbo服务暴露原理
+
+
+
+ ### 3.dubbo服务消费原理
+
+
+
+ ### 4.dubbo优雅停机解析
+
+
+
+
+
+
+
+
+
