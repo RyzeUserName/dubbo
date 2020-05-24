@@ -224,4 +224,4 @@ ExtensionFactory 的实现有：
 
 ​       上面我们看到其生成的class 就是字符串，生成类还有一段路，虽然我们可以通过反射生成，但是在性能上与直接编译好的class 还是有一定差距，dubbo怎么解决的呢？动态编译器，dubbo中的设计：
 
-![1590327031956](E:\study\dubbo\assets\1590327031956.png)
+![1590327031956](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590327031956.png?raw=true)
