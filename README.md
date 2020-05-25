@@ -2,6 +2,8 @@
 
 官方文档在http://dubbo.apache.org/zh-cn/docs/user/quick-start.html
 
+架构图：![](http://dubbo.apache.org/docs/zh-cn/dev/sources/images/dubbo-framework.jpg)
+
 ## 1.运行
 
 https://github.com/apache/dubbo  项目源码
@@ -305,6 +307,28 @@ jdk的动态编译需要实现：JavaFileObject 接口、ForwardingJavaFileManag
 ![1590336204376](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590336204376.png?raw=true)
 
 #### 2.注解
+
+@EnableDubbo  开始
+
+这个注解等于@DubboComponentScan+@EnableDubboConfig
+
+EnableDubbo 顾名思义激活dubbo注解
+
+@DubboComponentScan 扫描 @Service（@DubboService） @Reference（@DubboReference）  使其成为spring的bean 括号里面的都是新的 外面的已经不建议使用
+
+@EnableDubboConfig  方便便捷的配置一个/多个EnableDubboConfigBinding 到对应的配置类
+
+其注解上import  DubboConfigConfigurationRegistrar.class取出 EnableDubboConfig注解的值，注册multiple/Single  configBean
+
+点开 DubboConfigConfiguration 看到 
+
+![1590387150659](E:\study\dubbo\assets\1590387150659.png)
+
+@EnableConfigurationBeanBinding 也就是绑定的处理属性前缀和对应的处理类
+
+
+
+
 
  ### 2.dubbo服务暴露原理
 
