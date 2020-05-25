@@ -308,15 +308,33 @@ jdk的动态编译需要实现：JavaFileObject 接口、ForwardingJavaFileManag
 
 #### 2.注解
 
-@EnableDubbo  开始
+**@EnableDubbo**  开始
 
-这个注解等于@DubboComponentScan+@EnableDubboConfig
+这个注解等于**@DubboComponentScan+@EnableDubboConfig**
 
 EnableDubbo 顾名思义激活dubbo注解
 
-@DubboComponentScan 扫描 @Service（@DubboService） @Reference（@DubboReference）  使其成为spring的bean 括号里面的都是新的 外面的已经不建议使用
+@**DubboComponentScan** 扫描 @Service（@DubboService） @Reference（@DubboReference）  使其成为spring的bean 括号里面的都是新的 外面的已经不建议使用
 
-@EnableDubboConfig  方便便捷的配置一个/多个EnableDubboConfigBinding 到对应的配置类
+**DubboComponentScanRegistrar**
+
+![1590390106124](E:\study\dubbo\assets\1590390106124.png)
+
+service 处理类ServiceAnnotationBeanPostProcessor（ServiceClassPostProcessor）外面的过时，括号里面的是最新的
+
+处理类,处理@Service（@DubboService），之后
+
+核心就是 registerCommonBeans 点开：
+
+![1590390417777](E:\study\dubbo\assets\1590390417777.png)
+
+第一个就是 @Reference 的处理 也就是  ReferenceAnnotationBeanPostProcessor  该类中封装了ApplicationContext 
+
+实现Dubbo类的注入
+
+
+
+@**EnableDubboConfig**  方便便捷的配置一个/多个EnableDubboConfigBinding 到对应的配置类
 
 其注解上import  DubboConfigConfigurationRegistrar.class取出 EnableDubboConfig注解的值，注册multiple/Single  configBean
 
