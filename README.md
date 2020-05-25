@@ -322,7 +322,7 @@ EnableDubbo 顾名思义激活dubbo注解
 
 点开 DubboConfigConfiguration 看到 
 
-![1590387150659](E:\study\dubbo\assets\1590387150659.png)
+![1590387150659](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590387150659.png?raw=true)
 
 @EnableConfigurationBeanBinding 也就是绑定的处理属性前缀和对应的处理类
 
