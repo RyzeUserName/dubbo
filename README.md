@@ -318,7 +318,7 @@ EnableDubbo 顾名思义激活dubbo注解
 
 **DubboComponentScanRegistrar**
 
-![1590390106124](E:\study\dubbo\assets\1590390106124.png)
+![1590390106124](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590390106124.png?raw=true)
 
 service 处理类ServiceAnnotationBeanPostProcessor（ServiceClassPostProcessor）外面的过时，括号里面的是最新的
 
@@ -326,11 +326,11 @@ service 处理类ServiceAnnotationBeanPostProcessor（ServiceClassPostProcessor�
 
 核心就是 registerCommonBeans 点开：
 
-![1590390417777](E:\study\dubbo\assets\1590390417777.png)
+![1590390417777](https://github.com/RyzeUserName/dubbo/blob/master/assets/1590390417777.png?raw=true)
 
 第一个就是 @Reference 的处理 也就是  ReferenceAnnotationBeanPostProcessor  该类中封装了ApplicationContext 
 
-实现Dubbo类的注入
+实现Dubbo类的注入.
 
 
 
