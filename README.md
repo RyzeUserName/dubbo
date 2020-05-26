@@ -322,7 +322,11 @@ EnableDubbo 顾名思义激活dubbo注解
 
 service 处理类ServiceAnnotationBeanPostProcessor（ServiceClassPostProcessor）外面的过时，括号里面的是最新的
 
-处理类,处理@Service（@DubboService），之后
+处理类,处理@Service（@DubboService）
+
+
+
+之后
 
 核心就是 registerCommonBeans 点开：
 

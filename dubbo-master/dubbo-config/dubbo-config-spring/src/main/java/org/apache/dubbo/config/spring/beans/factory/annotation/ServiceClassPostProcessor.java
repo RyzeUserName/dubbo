@@ -147,51 +147,36 @@ public class ServiceClassPostProcessor implements BeanDefinitionRegistryPostProc
      * @param registry       {@link BeanDefinitionRegistry}
      */
     private void registerServiceBeans(Set<String> packagesToScan, BeanDefinitionRegistry registry) {
-
         DubboClassPathBeanDefinitionScanner scanner =
                 new DubboClassPathBeanDefinitionScanner(registry, environment, resourceLoader);
-
         BeanNameGenerator beanNameGenerator = resolveBeanNameGenerator(registry);
-
         scanner.setBeanNameGenerator(beanNameGenerator);
-
         // refactor @since 2.7.7
         serviceAnnotationTypes.forEach(annotationType -> {
             scanner.addIncludeFilter(new AnnotationTypeFilter(annotationType));
         });
-
         for (String packageToScan : packagesToScan) {
-
             // Registers @Service Bean first
             scanner.scan(packageToScan);
-
             // Finds all BeanDefinitionHolders of @Service whether @ComponentScan scans or not.
             Set<BeanDefinitionHolder> beanDefinitionHolders =
                     findServiceBeanDefinitionHolders(scanner, packageToScan, registry, beanNameGenerator);
-
             if (!CollectionUtils.isEmpty(beanDefinitionHolders)) {
-
                 for (BeanDefinitionHolder beanDefinitionHolder : beanDefinitionHolders) {
                     registerServiceBean(beanDefinitionHolder, registry, scanner);
                 }
-
                 if (logger.isInfoEnabled()) {
                     logger.info(beanDefinitionHolders.size() + " annotated Dubbo's @Service Components { " +
                             beanDefinitionHolders +
                             " } were scanned under package[" + packageToScan + "]");
                 }
-
             } else {
-
                 if (logger.isWarnEnabled()) {
                     logger.warn("No Spring Bean annotating Dubbo's @Service was found under package["
                             + packageToScan + "]");
                 }
-
             }
-
         }
-
     }
 
     /**
